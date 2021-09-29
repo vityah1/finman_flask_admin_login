@@ -1,6 +1,6 @@
 Financial manager 0.0.1 with flask_admin and flask_login
 
-Small and compact back-end rest-api written on flask with flask_admin and flask_login.  
+Small and compact back-end app on flask with flask_admin and flask_login.  
 
 Instalation:
 ## Requirements
