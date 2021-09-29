@@ -1,14 +1,19 @@
 from flask import Flask
 from flask_migrate import Migrate
-from flask_mail import Mail, Message
+from flask_mail import Mail
 from flask_sqlalchemy import SQLAlchemy
-from flask_script import Manager, Command, Shell
+from sqlalchemy.sql import text
+
+text = text
+# from flask_script import Manager, Command, Shell
 from flask_login import LoginManager
 from flask_cors import CORS
-import os, config
+
+# import os, config
 
 from flask_admin import Admin
-from flask_admin.contrib.sqla import ModelView
+
+# from flask_admin.contrib.sqla import ModelView
 
 # print("import ok")
 

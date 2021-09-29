@@ -1,16 +1,9 @@
-from flask import Blueprint, request, jsonify
-from flask_jwt_extended import jwt_required
+from flask import request, jsonify
 from flask_cors import cross_origin
+from flask_login.utils import login_required
 from utils import do_sql_sel
 from func import um_not_my_expspense, cat4zam
 from . import api_bp
-
-# api_bp = Blueprint(
-#     "api_bp",
-#     __name__,
-#     template_folder="templates/rozhody",
-#     static_folder="static",
-# )
 
 
 @api_bp.route("/api/cats/", methods=["GET"])
@@ -57,7 +50,7 @@ order by ord"""
 
 @api_bp.route("/api/catcosts", methods=["GET"])
 @cross_origin()
-@jwt_required()
+@login_required
 def catcosts():
     """
     return costs grouped by cat in some period (year, month)
@@ -84,7 +77,7 @@ group by {cat4zam.replace(' as cat','')} order by 2 desc
 
 @api_bp.route("/api/years", methods=["GET"])
 @cross_origin()
-@jwt_required()
+@login_required
 def years():
     """
     return total costs grouped by years
@@ -102,7 +95,7 @@ group by extract(YEAR from rdate) order by 1 desc
 
 @api_bp.route("/api/months/<int:year>", methods=["GET"])
 @cross_origin()
-@jwt_required()
+@login_required
 def months(year):
     """
     return total costs grouped by months in some year

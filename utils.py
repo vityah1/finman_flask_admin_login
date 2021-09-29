@@ -1,5 +1,5 @@
 import re
-from mydb import db, text
+from app import db, text
 from datetime import datetime
 
 
